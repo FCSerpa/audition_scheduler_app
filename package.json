@@ -1,0 +1,29 @@
+{
+  "name": "audition_scheduler_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FCSerpa/audition_scheduler_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FCSerpa/audition_scheduler_app/issues"
+  },
+  "homepage": "https://github.com/FCSerpa/audition_scheduler_app#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.13.3",
+    "cookie-parser": "^1.3.5",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "mongoose": "^4.1.5",
+    "nodemon": "^1.4.1",
+    "underscore": "^1.8.3"
+  }
+}
