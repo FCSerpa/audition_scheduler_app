@@ -10,7 +10,6 @@ var UserSchema = new Schema({
 	phone: {type: String, required: true},
 	createdOn: {type: Date, default: Date.now()}
 });
-var User = mongoose.model('User', userSchema);
 
 //new event schema
 var EventSchema = new Schema({
@@ -27,23 +26,24 @@ var EventSchema = new Schema({
 UserSchema.statics.createSecure = function(email, password, name, phone, cb){
 	var _this = this;
 	bcrypt.genSalt(function(err, salt){
-		bcrypt.hash(password, salt, function(err, hash){
+		bcrypt.hash(password, salt, function (err, hash){
 			var user = {
 				email: email,
 				passwordDigest: hash,
-				createdOn: Date.now(),
-				phone: phone
+				name: name,
+				phone: phone,
+				createdOn: Date.now()
 			};
-			this.create(user, cb);
+			_this.create(user, cb);
 		});
 	});
 };
 
 //create a new event
-EventSchema.statics.create = function(creator, title, company, date, time, location, cb){
-	var _this = this;
-	var 
-}
+//EventSchema.statics.create = function(creator, title, company, date, time, location, cb){
+//	var _this = this;
+//	var 
+//}
 
 //authenticate user at login
 UserSchema.statics.authenticate = function(email, password, cb){
@@ -66,4 +66,4 @@ UserSchema.methods.checkPassword = function(password){
 var User = mongoose.model('User', UserSchema);
 
 module.exports = User;
-module.exports = Event;
+//module.exports = Event;

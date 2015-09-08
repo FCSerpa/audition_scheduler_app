@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Event</title>
+</head>
+<body>
+	<h1>Create Event</h1>
+	<form method="post" action="/newEvent">
+		<div>
+			<input type"text" name="event[title]" placeholder="Title" required>
+		</div>
+		<div>
+			<input type"text" name="event[company]" placeholder="Theater/Conpany/School" required>
+		</div>
+		<div>
+			<textarea name="event[description]" placeholder="Description" required></textarea>
+		</div>
+		<div>
+			<label>Date
+				<input type="date" name="event[date]" required>
+			</label>
+		</div>
+		<div>
+			<label>Start Time
+				<input type="time" name="event[time]" default="9:00am" required>
+			</label>
+		</div>
+		<button>Create</button>
+	</form>
+</body>
+</html>
