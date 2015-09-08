@@ -30,6 +30,7 @@ app.get("/signUp", function(req, res){
 	res.sendFile(path.join(views, "signUp.html"));
 });
 
+//sign up a new user
 app.post(["/users", "/signingUp"], function signup(req, res){
 	var user = req.body.user;
 	var email = user.email;
@@ -38,6 +39,18 @@ app.post(["/users", "/signingUp"], function signup(req, res){
 	var password = user.password;
 	db.User.createSecure(email, password, name, phone, function(){
 		res.send(name + " is registered!\n");
+		console.log(user);
+	});
+});
+
+//sign a user in
+app.post(["/sessions", "/signingIn"], function login(req, res) {
+	var user = req.body.user;
+	var email = user.email;
+	var password = user.password;
+	console.log(user);
+	db.User.authenticate(email, password, function(err, user) {
+		res.send("Hello " + user.email);
 	});
 });
 

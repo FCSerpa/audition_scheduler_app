@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/express_auth");
+mongoose.connect("mongodb://localhost/audition");
 
 
 module.exports.User = require("./user");
