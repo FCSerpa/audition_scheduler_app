@@ -5,8 +5,8 @@ var session = require('express-session');
 var path = require('path');
 var app = express();
 var _ = require('underscore');
-var keygen = require('keygenerator');
-var cookieParser = require('cookie-parser');
+//var keygen = require('keygenerator');
+//var cookieParser = require('cookie-parser');
 
 var views = path.join(process.cwd(), "views");
 
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(
 	session({
-		secret: keygen._({specials: true}),
+		secret: 'theoretician joe job incompliable cratered',
 		resave: false,
 		saveUninitialized: true
 	})
@@ -84,7 +84,14 @@ app.post(["/sessions", "/signingIn"], function login(req, res) {
 		else {
 			req.login(user);
 			console.log(req.session.userId);
-			res.redirect("/profile")};
+
+			req.currentUser(function(err, user){
+				console.log(user);
+			})
+
+			res.redirect("/profile");
+
+		};
 	});
 });
 
@@ -98,16 +105,16 @@ app.post(["/events", "/newEventData"], function newEvent(req, res) {
 	var time = event.time;
 	var location = event.location;
 	req.currentUser(function(err, user){
-		if (currentUser === null){
-			res.redirect("/signup")
-		} else {
-			var currentUser = user;
-			var creator = currentUser.name;
-			db.Event.createNew(creator, title, company, description, date, time, location, function(){
-				res.send(title + "is created!\n");
-				console.log(event);
-			});
-		}
+		
+		console.log(user);
+		
+		var creator = user.name;
+		db.Event.createNew(creator, title, company, description, date, time, location, function(){
+		
+			res.send(title + " is created!\n");
+		
+			console.log(event);
+		});	
 	});
 });
 
