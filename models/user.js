@@ -11,17 +11,6 @@ var UserSchema = new Schema({
 	createdOn: {type: Date, default: Date.now()}
 });
 
-//new event schema
-var EventSchema = new Schema({
-	creator: [{type: Schema.Types.ObjectId, ref: 'User'}],
-	title: {type: String, required: true},
-	company: {type: String, required: true},
-	date: {type: Date, required: true},
-	time: {type: String, required: true},
-	location: {type: String, required: true},
-	slot: {type: Array}
-})
-
 //create a new user, hash their password
 UserSchema.statics.createSecure = function(email, password, name, phone, cb){
 	var _this = this;
@@ -38,12 +27,6 @@ UserSchema.statics.createSecure = function(email, password, name, phone, cb){
 		});
 	});
 };
-
-//create a new event
-//EventSchema.statics.create = function(creator, title, company, date, time, location, cb){
-//	var _this = this;
-//	var 
-//}
 
 //authenticate user at login
 UserSchema.statics.authenticate = function(email, password, cb){
@@ -66,4 +49,3 @@ UserSchema.methods.checkPassword = function(password){
 var User = mongoose.model('User', UserSchema);
 
 module.exports = User;
-//module.exports = Event;
