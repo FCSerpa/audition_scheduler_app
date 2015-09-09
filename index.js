@@ -6,6 +6,7 @@ var path = require('path');
 var app = express();
 var _ = require('underscore');
 var keygen = require('keygenerator');
+var cookieParser = require('cookie-parser');
 
 var views = path.join(process.cwd(), "views");
 
