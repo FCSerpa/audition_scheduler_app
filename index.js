@@ -8,6 +8,10 @@ var _ = require('underscore');
 //var keygen = require('keygenerator');
 //var cookieParser = require('cookie-parser');
 
+//serve up js and css
+app.use("/vendor", express.static("bower_components"));
+app.use("/static", express.static("public"));
+
 var views = path.join(process.cwd(), "views");
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -58,7 +62,26 @@ app.get("/signUp", function(req, res){
 
 app.get("/profile", function(req, res){
 	res.sendFile(path.join(views, "profile.html"));
-})
+});
+
+//show JSON of currently logged in user
+app.get("/api/users/current", function(req, res){
+	req.currentUser(function (err, user){
+		res.json(user);
+	});
+});
+
+app.get("/api/users", function(req, res){
+	db.User.find({}, function(err, user){
+		res.json(user);
+	});
+});
+
+app.get("/api/events", function(req, res){
+	db.Event.find({}, function(err, event){
+		res.json(event);
+	});
+});
 
 //sign up a new user
 app.post(["/users", "/signingUp"], function signup(req, res){
