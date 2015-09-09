@@ -15,7 +15,7 @@ var EventSchema = new Schema({
 });
 
 //create a new event
-EventSchema.statics.createNew = function(title, company, description, date, time, location, cb){
+EventSchema.statics.createNew = function(creator, title, company, description, date, time, location, cb){
 	var _this = this;
 	var event = { 
 		creator: creator,

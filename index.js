@@ -83,6 +83,7 @@ app.post(["/sessions", "/signingIn"], function login(req, res) {
 		if (err) {res.send(err)}
 		else {
 			req.login(user);
+			console.log(req.session.userId);
 			res.redirect("/profile")};
 	});
 });
@@ -97,11 +98,16 @@ app.post(["/events", "/newEventData"], function newEvent(req, res) {
 	var time = event.time;
 	var location = event.location;
 	req.currentUser(function(err, user){
-		var currentUser = user;
-		db.Event.createNew(user.name, title, company, description, date, time, location, function(){
-			res.send(title + "is created!\n");
-			console.log(event);
-		});
+		if (currentUser === null){
+			res.redirect("/signup")
+		} else {
+			var currentUser = user;
+			var creator = currentUser.name;
+			db.Event.createNew(creator, title, company, description, date, time, location, function(){
+				res.send(title + "is created!\n");
+				console.log(event);
+			});
+		}
 	});
 });
 
