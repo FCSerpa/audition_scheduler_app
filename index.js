@@ -134,7 +134,7 @@ app.post(["/events", "/newEventData"], function newEvent(req, res) {
 		console.log(user);
 		
 		var creator = user.name;
-		db.Event.createNew(creator, title, company, description, date, time, location, function(){
+		db.Event.createNew (creator, title, company, description, date, time, location, function(){
 		
 			res.send(title + " is created!\n");
 		

@@ -2,6 +2,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 
+//new slot schema
+var SlotSchema = new Schema({
+	name: {type: String, required: true},
+	email: {type: String, required: true},
+	piece: {type: String, required: true},
+})
+
+var Slot = mongoose.model('Slot', SlotSchema);
+
 //new event schema
 var EventSchema = new Schema({
 	creator: {type: String, required: true},
@@ -11,15 +20,8 @@ var EventSchema = new Schema({
 	date: {type: Date, required: true},
 	time: {type: String, required: true},
 	location: {type: String, required: true},
-	slots: [slots]
+	slot: [Slot]
 });
-
-//new slot schema
-var SlotsSchema = new Schema({
-	name: {type: String, required: true},
-	email: {type: String, required: true},
-	piece: {type: String, required: true},
-})
 
 //create a new event
 EventSchema.statics.createNew = function(creator, title, company, description, date, time, location, cb){
@@ -31,14 +33,10 @@ EventSchema.statics.createNew = function(creator, title, company, description, d
 		description: description,
 		date: date,
 		time: time,
-		location: location,
-		slots: [{number: 1, name: "", piece: ""}, {number: 2, name: "", piece: ""}, {number: 3, name: "", piece: ""}, {number: 4, name: "", piece: ""}, {number: 5, name: "", piece: ""}, {number: 6, name: "", piece: ""}, {number: 7, name: "", piece: ""}, {number: 8, name: "", piece: ""}, {number: 9, name: "", piece: ""}, {number: 10, name: "", piece: ""}]
+		location: location
 	};
 	_this.create(event, cb);
 };
 
 var Event = mongoose.model('Event', EventSchema);
-var Slots = mongoose.model('Slots', SlotsSchema);
-
 module.exports = Event;
-module.exports = Slots;
