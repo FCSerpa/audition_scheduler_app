@@ -64,7 +64,11 @@ app.get("/profile", function(req, res){
 	res.sendFile(path.join(views, "profile.html"));
 });
 
-//show JSON of currently logged in user
+app.get("/event", function(req, res){
+	res.sendFile(path.join(views, "event.html"));
+});
+
+//give JSON of currently logged in user
 app.get("/api/users/current", function(req, res){
 	req.currentUser(function (err, user){
 		res.json(user);
