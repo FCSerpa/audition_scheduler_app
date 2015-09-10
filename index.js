@@ -5,8 +5,6 @@ var session = require('express-session');
 var path = require('path');
 var app = express();
 var _ = require('underscore');
-//var keygen = require('keygenerator');
-//var cookieParser = require('cookie-parser');
 
 //serve up js and css
 app.use("/vendor", express.static("bower_components"));
@@ -146,6 +144,4 @@ app.post(["/events", "/newEventData"], function newEvent(req, res) {
 });
 
 
-var listener = app.listen(3333, function(){
-	console.log("Listening on port 3333")
-});
+var listener = app.listen(process.env.PORT || 3333);
