@@ -18,7 +18,7 @@ var EventSchema = new Schema({
 var SlotsSchema = new Schema({
 	name: {type: String, required: true},
 	email: {type: String, required: true},
-	piece {type: String, required: true},
+	piece: {type: String, required: true},
 })
 
 //create a new event
