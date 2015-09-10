@@ -25,7 +25,7 @@ EventSchema.statics.createNew = function(creator, title, company, description, d
 		date: date,
 		time: time,
 		location: location,
-		slots: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+		slots: [{number: 1, name: "", piece: ""}, {number: 2, name: "", piece: ""}, {number: 3, name: "", piece: ""}, {number: 4, name: "", piece: ""}, {number: 5, name: "", piece: ""}, {number: 6, name: "", piece: ""}, {number: 7, name: "", piece: ""}, {number: 8, name: "", piece: ""}, {number: 9, name: "", piece: ""}, {number: 10, name: "", piece: ""}]
 	};
 	_this.create(event, cb);
 };

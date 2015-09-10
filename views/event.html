@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign Up</title>
+	<title>Event</title>
 	<script src="/vendor/jquery/dist/jquery.min.js"></script>
 	<script src="/vendor/underscore/underscore-min.js"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="/static/app.js"></script>
+	<script src="/static/event.js"></script>
 	<link rel="stylesheet" src="/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
+	<div>
+		<header>
+			<h2>Audition Event Page</h2>
+		</header>
+	</div>
+
+	<script type="text/template" id="event-template">
+		<div id="eventDataTemplate">
+			<h1><%= title %></h1>
+			<p>Theater: <%= company %></p>
+			<p>Description: <%= description %></p>
+			<p>Location: <%= location %></p>
+			<p>Date: <%= date %></p>
+			<p>Time: <%= time %></p>
+		</div>
+	</script>
+
+	<script type="text/template" id="slot-template">
+		<div id="slotDataTemplate">
+			<p><%= number =>. <%= name =>, <%= piece =>.</p>
+		</div>
+	</script>
 </body>
 </html>
