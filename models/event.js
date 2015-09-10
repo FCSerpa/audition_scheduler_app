@@ -38,5 +38,7 @@ EventSchema.statics.createNew = function(creator, title, company, description, d
 };
 
 var Event = mongoose.model('Event', EventSchema);
+var Slots = mongoose.model('Slots', SlotsSchema);
 
 module.exports = Event;
+module.exports = Slots;
