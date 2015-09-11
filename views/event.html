@@ -14,24 +14,20 @@
 		<header>
 			<h2>Audition Event Page</h2>
 		</header>
-		<ul id="slotList"></ul>
 	</div>
-
-	<script type="text/template" id="event-template">
-		<div id="eventDataTemplate">
-			<h1><%= title %></h1>
-			<p>Theater: <%= company %></p>
-			<p>Description: <%= description %></p>
-			<p>Location: <%= location %></p>
-			<p>Date: <%= date %></p>
-			<p>Time: <%= time %></p>
-		</div>
-	</script>
-
-	<script type="text/template" id="slot-template">
-		<div id="slotDataTemplate">
-			<li><%= number =>. <%= name =>, <%= piece =>.</li>
-		</div>
-	</script>
+	<div id="eventStuff">
+		<script type="text/template" id="event-template">
+			<div id="eventDataTemplate">
+				<h1><%= title %></h1>
+				<p>Theater: <%= company %></p>
+				<p>Description: <%= description %></p>
+				<p>Location: <%= location %></p>
+				<p>Date: <%= date %></p>
+				<p>Time: <%= time %></p>
+			</div>
+		</script>
+	</div>
+	<div id="slotStuff">
+	</div>
 </body>
 </html>

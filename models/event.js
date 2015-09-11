@@ -20,7 +20,7 @@ var EventSchema = new Schema({
 	date: {type: Date, required: true},
 	time: {type: String, required: true},
 	location: {type: String, required: true},
-	slot: [Slot]
+	slot: [SlotSchema]
 });
 
 //create a new event

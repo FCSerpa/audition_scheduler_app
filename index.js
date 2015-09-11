@@ -85,6 +85,13 @@ app.get("/api/events", function(req, res){
 	});
 });
 
+app.get("/api/events/:id", function(req, res){
+	var eventId = req.params.id;
+	db.Event.find({_id: eventId}, function(err, event){
+		res.json(event);
+	});
+});
+
 //sign up a new user
 app.post(["/users", "/signingUp"], function signup(req, res){
 	var user = req.body.user;
@@ -130,9 +137,6 @@ app.post(["/events", "/newEventData"], function newEvent(req, res) {
 	var time = event.time;
 	var location = event.location;
 	req.currentUser(function(err, user){
-		
-		console.log(user);
-		
 		var creator = user.name;
 		db.Event.createNew (creator, title, company, description, date, time, location, function(){
 		
@@ -143,5 +147,25 @@ app.post(["/events", "/newEventData"], function newEvent(req, res) {
 	});
 });
 
+//add a slot to an event
+
+app.post("/slots", function (req, res){
+	var piece = req.body.piece;
+	var id = req.body.id;
+	req.currentUser(function (err, user){
+		var name = user.name;
+		var userEmail = user.email;
+		db.Event.findOne({_id: id}, function(err, event){
+			if (err) {console.log(err)}
+			else {
+				event.slot.push( {name: name, email: userEmail, piece: piece} );
+				event.save(function(){
+					if (err){console.log(err)};
+					res.sendStatus(200);
+				});
+			}
+		});
+	});
+})
 
 var listener = app.listen(process.env.PORT || 3333);
