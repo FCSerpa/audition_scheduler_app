@@ -106,7 +106,7 @@ app.post(["/users", "/signingUp"], function signup(req, res){
 	db.User.createSecure(email, password, name, phone, function(){
 		res.send(name + " is registered!\n");
 		console.log(user);
-		res.redirect("/signIn")
+		// res.redirect("/signIn")
 	});
 });
 
@@ -172,5 +172,10 @@ app.post("/slots", function (req, res){
 		});
 	});
 })
+
+app.delete(["/sessions", "/logout"], function(req, res) {
+  req.logout();
+  res.redirect("/login");
+});
 
 var listener = app.listen(process.env.PORT || 3333);
