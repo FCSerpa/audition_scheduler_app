@@ -50,7 +50,7 @@ app.get("/newEvent", function(req, res){
 	res.sendFile(path.join(views, "newEvent.html"));
 });
 
-app.get("/signIn", function(req, res){
+app.get("/", function(req, res){
 	res.sendFile(path.join(views, "signIn.html"));
 });
 
@@ -106,6 +106,7 @@ app.post(["/users", "/signingUp"], function signup(req, res){
 	db.User.createSecure(email, password, name, phone, function(){
 		res.send(name + " is registered!\n");
 		console.log(user);
+		res.redirect("/signIn")
 	});
 });
 
@@ -125,7 +126,7 @@ app.post(["/sessions", "/signingIn"], function login(req, res) {
 				console.log(user);
 			})
 
-			res.redirect("/profile");
+			res.redirect("/events");
 
 		};
 	});
