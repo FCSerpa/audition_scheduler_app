@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events</title>
+	<script src="/vendor/jquery/dist/jquery.min.js"></script>
+	<script src="/vendor/underscore/underscore-min.js"></script>
+	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/static/events.js"></script>
+	<link rel="stylesheet" src="/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+	<div>
+		<header>
+			<h2>Audition Events Page</h2>
+		</header>
+	</div>
+	<div id="eventStuff">
+		<ul id="eventDataTemplate"></ul>
+		<script type="text/template" id="event-template">
+				<a href="/event/<%= _id %>" ><%= title %>, <%= company %>, <%= date %>.</a>
+		</script>
+	</div>
+</body>
+</html>

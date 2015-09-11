@@ -62,8 +62,12 @@ app.get("/profile", function(req, res){
 	res.sendFile(path.join(views, "profile.html"));
 });
 
-app.get("/event", function(req, res){
+app.get("/event/:id", function(req, res){
 	res.sendFile(path.join(views, "event.html"));
+});
+
+app.get("/events", function(req, res){
+	res.sendFile(path.join(views, "events.html"));
 });
 
 //give JSON of currently logged in user
@@ -147,11 +151,11 @@ app.post(["/events", "/newEventData"], function newEvent(req, res) {
 	});
 });
 
-//add a slot to an event
-
+//embed a slot in an event
 app.post("/slots", function (req, res){
 	var piece = req.body.piece;
 	var id = req.body.id;
+	console.log(req.body)
 	req.currentUser(function (err, user){
 		var name = user.name;
 		var userEmail = user.email;
@@ -161,7 +165,7 @@ app.post("/slots", function (req, res){
 				event.slot.push( {name: name, email: userEmail, piece: piece} );
 				event.save(function(){
 					if (err){console.log(err)};
-					res.sendStatus(200);
+					res.send(event);
 				});
 			}
 		});
