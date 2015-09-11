@@ -9,8 +9,11 @@
 	<link rel="stylesheet" src="/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/styles.css">
 </head>
-<body class="something">
-	<h1>Create Event</h1>
+<body>
+	<header>
+		<h1>Audition Scheduler</h1>
+		<h2>Create Event</h2>
+	</header>
 	<form method="post" action="/newEventData">
 		<div>
 			<input type"text" name="event[title]" placeholder="Title" required>
@@ -36,5 +39,7 @@
 		</div>
 		<button>Create</button>
 	</form>
+	<br>
+	<a href="/events">Back to Events page.</a>
 </body>
 </html>
