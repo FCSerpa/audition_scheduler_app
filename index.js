@@ -175,6 +175,11 @@ app.post("/slots", function (req, res){
 			}
 		});
 	});
-})
+});
+
+app.post("/logout", function(req, res){
+	req.logout();
+	res.redirect('/');
+});
 
 var listener = app.listen(process.env.PORT || 3333);
