@@ -149,7 +149,7 @@ app.post(["/events", "/newEventData"], function newEvent(req, res) {
 		var creator = user.name;
 		db.Event.createNew (creator, title, company, description, date, time, location, function(){
 		
-			res.send(title + " is created!\n");
+			res.redirect("/events");
 		
 			console.log(event);
 		});	

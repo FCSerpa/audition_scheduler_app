@@ -42,7 +42,7 @@ function getSlotData(){
 		// ajax POST request to server
 		$.post("/slots", {piece: piece, id: eventRes[0]._id})
 			.done(function(res){
-				getEvent();
+				window.location.reload();				
 			});
 	});
 	$("#slotInputBtn1").click(function(){
@@ -51,7 +51,7 @@ function getSlotData(){
 		// ajax POST request to server
 		$.post("/slots", {piece: piece, id: eventRes[0]._id})
 			.done(function(res){
-				getEvent();
+				window.location.reload();
 			});
 	});
 	$("#slotInputBtn2").click(function(){
@@ -60,7 +60,8 @@ function getSlotData(){
 		// ajax POST request to server
 		$.post("/slots", {piece: piece, id: eventRes[0]._id})
 			.done(function(res){
-				getEvent();
+				window.location.reload();
+				
 			});
 	});
 	$("#slotInputBtn3").click(function(){
@@ -69,7 +70,8 @@ function getSlotData(){
 		// ajax POST request to server
 		$.post("/slots", {piece: piece, id: eventRes[0]._id})
 			.done(function(res){
-				getEvent();
+				window.location.reload();
+				
 			});
 	});
 	$("#slotInputBtn4").click(function(){
@@ -78,7 +80,8 @@ function getSlotData(){
 		// ajax POST request to server
 		$.post("/slots", {piece: piece, id: eventRes[0]._id})
 			.done(function(res){
-				getEvent();
+				window.location.reload();
+				
 			});
 	});
 	$("#slotInputBtn5").click(function(){
@@ -87,7 +90,8 @@ function getSlotData(){
 		// ajax POST request to server
 		$.post("/slots", {piece: piece, id: eventRes[0]._id})
 			.done(function(res){
-				getEvent();
+				window.location.reload();
+				
 			});
 	});
 	$("#slotInputBtn6").click(function(){
@@ -96,7 +100,8 @@ function getSlotData(){
 		// ajax POST request to server
 		$.post("/slots", {piece: piece, id: eventRes[0]._id})
 			.done(function(res){
-				getEvent();
+				window.location.reload();
+				
 			});
 	});
 	$("#slotInputBtn7").click(function(){
@@ -105,7 +110,8 @@ function getSlotData(){
 		// ajax POST request to server
 		$.post("/slots", {piece: piece, id: eventRes[0]._id})
 			.done(function(res){
-				getEvent();
+				window.location.reload();
+				
 			});
 	});
 	$("#slotInputBtn8").click(function(){
@@ -114,7 +120,8 @@ function getSlotData(){
 		// ajax POST request to server
 		$.post("/slots", {piece: piece, id: eventRes[0]._id})
 			.done(function(res){
-				getEvent();
+				window.location.reload();
+				
 			});
 	});
 	$("#slotInputBtn9").click(function(){
@@ -123,7 +130,8 @@ function getSlotData(){
 		// ajax POST request to server
 		$.post("/slots", {piece: piece, id: eventRes[0]._id})
 			.done(function(res){
-				getEvent();
+				window.location.reload();
+
 			});
 	});
 }
