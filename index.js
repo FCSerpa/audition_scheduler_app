@@ -104,9 +104,13 @@ app.post(["/users", "/signingUp"], function signup(req, res){
 	var phone = user.phone;
 	var password = user.password;
 	db.User.createSecure(email, password, name, phone, function(){
-		res.send(name + " is registered!\n");
+		//removed the res.send so that it won't conflict with the res.redirect
+		// res.send(name + " is registered!\n");
 		console.log(user);
-		res.redirect("/signIn")
+		//loging the user in after user account is created
+		req.login(user);
+		//redirecting to events page (like signingIn does)
+		res.redirect("/events")
 	});
 });
 
@@ -145,7 +149,7 @@ app.post(["/events", "/newEventData"], function newEvent(req, res) {
 		var creator = user.name;
 		db.Event.createNew (creator, title, company, description, date, time, location, function(){
 		
-			res.send(title + " is created!\n");
+			res.redirect("/events");
 		
 			console.log(event);
 		});	
@@ -171,6 +175,11 @@ app.post("/slots", function (req, res){
 			}
 		});
 	});
-})
+});
+
+app.post("/logout", function(req, res){
+	req.logout();
+	res.redirect('/');
+});
 
 var listener = app.listen(process.env.PORT || 3333);
