@@ -15,3 +15,4 @@ function getEvents() {
 		$("#eventStuff").append(eventItems);
 	});
 }
+

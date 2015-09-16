@@ -104,9 +104,12 @@ app.post(["/users", "/signingUp"], function signup(req, res){
 	var phone = user.phone;
 	var password = user.password;
 	db.User.createSecure(email, password, name, phone, function(){
-		res.send(name + " is registered!\n");
-		console.log(user);
-		// res.redirect("/signIn")
+		//removed the res.send so that it won't conflict with the res.redirect
+		// res.send(name + " is registered!\n");
+		//loging the user in after user account is created
+		req.login(user);
+		//redirecting to events page (like signingIn does)
+		res.redirect("/events")
 	});
 });
 
@@ -120,7 +123,6 @@ app.post(["/sessions", "/signingIn"], function login(req, res) {
 		if (err) {res.send(err)}
 		else {
 			req.login(user);
-			console.log(req.session.userId);
 
 			req.currentUser(function(err, user){
 				console.log(user);
@@ -144,10 +146,7 @@ app.post(["/events", "/newEventData"], function newEvent(req, res) {
 	req.currentUser(function(err, user){
 		var creator = user.name;
 		db.Event.createNew (creator, title, company, description, date, time, location, function(){
-		
-			res.send(title + " is created!\n");
-		
-			console.log(event);
+			res.redirect("/events");
 		});	
 	});
 });
@@ -164,14 +163,19 @@ app.post("/slots", function (req, res){
 			if (err) {console.log(err)}
 			else {
 				event.slot.push( {name: name, email: userEmail, piece: piece} );
-				event.save(function(){
+				event.save(function(err){
 					if (err){console.log(err)};
 					res.send(event);
 				});
 			}
 		});
 	});
-})
+});
+
+app.post("/logout", function(req, res){
+	req.logout();
+	res.redirect('/');
+});
 
 app.delete(["/sessions", "/logout"], function(req, res) {
   req.logout();
