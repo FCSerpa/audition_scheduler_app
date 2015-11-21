@@ -6,12 +6,16 @@ html {
   background-size: cover;
 }
 
-p, a, input, button {
+p, a, input, button, label, textarea {
 	font-family: 'Lora', serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Tangerine', cursive;
+}
+
+.textRed {
+	color: red;
 }
 
 body {

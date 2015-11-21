@@ -6,6 +6,7 @@
 	<script src="/vendor/underscore/underscore-min.js"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/static/app.js"></script>
+	<script src="/static/newEvent.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Tangerine|Lora' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/styles.css">
@@ -29,32 +30,33 @@
 			<h1>Create Event</h1>
 		</header>
 		<form method="post" action="/newEventData">
-			<div>
-				<input type"text" name="event[title]" placeholder="Title" required>
+			<div class="form-group">
+				<input type"text" class="form-control" name="event[title]" placeholder="Title" required>
 			</div>
-			<div>
-				<input type"text" name="event[company]" placeholder="Theater/Conpany/School" required>
+			<div class="form-group">
+				<input type"text" class="form-control" name="event[company]" placeholder="Theater/Company/School" required>
 			</div>
-			<div>
-				<textarea name="event[description]" placeholder="Description" required></textarea>
+			<div class="form-group">
+				<textarea name="event[description]" class="form-control" placeholder="Description" required></textarea>
 			</div>
-			<div>
+			<div class="form-group">
 				<label>Date
-					<input type="date" name="event[date]" required>
+					<input type="date" class="form-control" name="event[date]" required>
 				</label>
 			</div>
-			<div>
+			<div class="form-group">
 				<label>Start Time
-					<input type="time" name="event[time]" default="9:00am" required>
+					<input type="time" class="form-control" name="event[time]" default="9:00am" required>
 				</label>
 			</div>
-			<div>
-				<input type"text" name="event[location]" placeholder="Address" required>
+			<div class="form-group">
+				<input type"text" class="form-control" name="event[location]" placeholder="Address" required>
 			</div>
-			<button>Create</button>
+			<button class="btn btnRed" id="eventCreateBtn">Create</button>
+			<p id="userOnly">You must be signed in to save an event.</p>
 		</form>
 		<br>
-		<a href="/events">Back to Events page.</a>
+		<a href="/events"><h1 class="textRed">Back to Events page.</h1></a>
 	</div>
 
 </body>

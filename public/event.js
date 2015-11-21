@@ -29,7 +29,7 @@ function renderSlots(){
 		if (eventRes[0].slot[i]){
 			$("#slotStuff").append("<li>" + (i + 1) + ". Actor name: " + eventRes[0].slot[i].name + ". Monologue: " + eventRes[0].slot[i].piece + ". Email: " + eventRes[0].slot[i].email + ".</li>")
 		} else {
-			$("#slotStuff").append("<li id='emptySlot" + i + "'>" + (i + 1) + ".  Sign up for this audition!   Monologue:  <input type='text' name='slot[piece]' id='monologueForm" + i + "' placeholder='character, play'><button id='slotInputBtn" + i + "'>sign up</button></li>");
+			$("#slotStuff").append("<li id='emptySlot" + i + "'>" + (i + 1) + ".  Sign up for this audition!   Monologue:  <input type='text' name='slot[piece]' id='monologueForm" + i + "' placeholder='character, play'><button class='btn btnRed btn-sm btnNav' id='slotInputBtn" + i + "'>sign up</button></li>");
 		}
 	}
 }
