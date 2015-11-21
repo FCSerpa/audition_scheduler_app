@@ -6,31 +6,45 @@
 	<script src="/vendor/underscore/underscore-min.js"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/static/app.js"></script>
-	<link rel="stylesheet" src="/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Tangerine|Lora' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-	<header>
-		<h1>Audition Scheduler</h1>
-		<h2>Create a New Account</h2>
-	</header>
-	<form method="post" action="/signingUp">
-		<div>
-			<input type"email" name="user[email]" placeholder="email" required>
+	<nav class="navbar navbar-inverse">
+		<a href="/"><h1 class="navbar-text" id="navTitle">Audition Scheduler</h1></a>
+		<div class="navbar-right btnNav" id="navInUpBtns">
+			<a class="btn btnRed btnNav" href="/signin">Sign In</a>
+			<a class="btn btnRed btnNav" href="/signup">Sign Up</a>
 		</div>
-		<div>
-			<input type"text" name="user[name]" placeholder="name" required>
+		<div class="navbar-right btnNav" id="navOutBtns">
+			<form action="/logout" method="POST">
+				<input class="btn btnRed btnNav" type="submit" value="Sign Out"/>
+			</form>
 		</div>
-		<div>
-			<input type"tel" name="user[phone]" placeholder="phone number" required>
-		</div>
-		<div>
-			<input type="password" name="user[password]" placeholder="password" required>
-		</div>
-		<div>
-			<input type="password" name="confirm" placeholder="confirm password" required>
-		</div>
-		<button>Sign Up</button>
-	</form>
+	</nav>
+	<div class="container signUpIn outer">
+		<header>
+			<h1>Create a New Account</h1>
+		</header>
+		<form method="post" action="/signingUp">
+			<div>
+				<input type"email" name="user[email]" placeholder="email" required>
+			</div>
+			<div>
+				<input type"text" name="user[name]" placeholder="name" required>
+			</div>
+			<div>
+				<input type"tel" name="user[phone]" placeholder="phone number" required>
+			</div>
+			<div>
+				<input type="password" name="user[password]" placeholder="password" required>
+			</div>
+			<div>
+				<input type="password" name="confirm" placeholder="confirm password" required>
+			</div>
+			<button>Sign Up</button>
+		</form>
+	</div>
 </body>
 </html>

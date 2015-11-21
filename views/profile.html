@@ -6,11 +6,26 @@
 	<script src="/vendor/underscore/underscore-min.js"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/static/app.js"></script>
-	<link rel="stylesheet" src="/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Tangerine|Lora' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-	<h1>Here is a profile of you!</h1>
-	<a href="/newEvent">Create a new audition event.</a>
+	<nav class="navbar navbar-inverse">
+		<a href="/"><h1 class="navbar-text" id="navTitle">Audition Scheduler</h1></a>
+		<div class="navbar-right btnNav" id="navInUpBtns">
+			<a class="btn btnRed btnNav" href="/signin">Sign In</a>
+			<a class="btn btnRed btnNav" href="/signup">Sign Up</a>
+		</div>
+		<div class="navbar-right btnNav" id="navOutBtns">
+			<form action="/logout" method="POST">
+				<input class="btn btnRed btnNav" type="submit" value="Sign Out"/>
+			</form>
+		</div>
+	</nav>
+	<div class="container outer">
+		<h1>Here is a profile of you!</h1>
+		<a href="/newevent">Create a new audition event.</a>
+	</div>
 </body>
 </html>

@@ -6,23 +6,39 @@
 	<script src="/vendor/underscore/underscore-min.js"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/static/app.js"></script>
-	<link rel="stylesheet" src="/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Tangerine|Lora' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-	<header>
-		<h1>Audition Scheduler</h1>
-		<h2>Sign In</h2>
-	</header>
-	<form method="post" action="/signingIn">
-		<div>
-			<input type"text" name="user[email]" placeholder="email">
+	<nav class="navbar navbar-inverse">
+		<a href="/"><h1 class="navbar-text" id="navTitle">Audition Scheduler</h1></a>
+		<div class="navbar-right btnNav" id="navInUpBtns">
+			<a class="btn btnRed btnNav" href="/signin">Sign In</a>
+			<a class="btn btnRed btnNav" href="/signup">Sign Up</a>
 		</div>
-		<div>
-			<input type="password" name="user[password]" placeholder="password">
+		<div class="navbar-right btnNav" id="navOutBtns">
+			<form action="/logout" method="POST">
+				<input class="btn btnRed btnNav" type="submit" value="Sign Out"/>
+			</form>
 		</div>
-		<button>Sign In</button>
-	</form>
-	<a href="/signUp">Create a new account.</a>
+	</nav>
+	<div class="container signUpIn outer">
+		
+		<header>
+			<h1>Sign In</h1>
+		</header>
+		<form method="post" action="/signingIn">
+			<div class="form-group">
+				<input type"text" class="form-control" name="user[email]" placeholder="email">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" name="user[password]" placeholder="password">
+			</div>
+			<button class="btn btnRed btn-sm">Sign In</button>
+		</form>
+		<br>
+		<a href="/signup">Create a new account.</a>
+	</div>
 </body>
 </html>

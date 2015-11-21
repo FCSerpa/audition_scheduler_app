@@ -6,40 +6,56 @@
 	<script src="/vendor/underscore/underscore-min.js"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/static/app.js"></script>
-	<link rel="stylesheet" src="/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Tangerine|Lora' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/styles.css">
+
 </head>
 <body>
-	<header>
-		<h1>Audition Scheduler</h1>
-		<h2>Create Event</h2>
-	</header>
-	<form method="post" action="/newEventData">
-		<div>
-			<input type"text" name="event[title]" placeholder="Title" required>
+	<nav class="navbar navbar-inverse">
+		<a href="/"><h1 class="navbar-text" id="navTitle">Audition Scheduler</h1></a>
+		<div class="navbar-right btnNav" id="navInUpBtns">
+			<a class="btn btnRed btnNav" href="/signin">Sign In</a>
+			<a class="btn btnRed btnNav" href="/signup">Sign Up</a>
 		</div>
-		<div>
-			<input type"text" name="event[company]" placeholder="Theater/Conpany/School" required>
+		<div class="navbar-right btnNav" id="navOutBtns">
+			<form action="/logout" method="POST">
+				<input class="btn btnRed btnNav" type="submit" value="Sign Out"/>
+			</form>
 		</div>
-		<div>
-			<textarea name="event[description]" placeholder="Description" required></textarea>
-		</div>
-		<div>
-			<label>Date
-				<input type="date" name="event[date]" required>
-			</label>
-		</div>
-		<div>
-			<label>Start Time
-				<input type="time" name="event[time]" default="9:00am" required>
-			</label>
-		</div>
-		<div>
-			<input type"text" name="event[location]" placeholder="Address" required>
-		</div>
-		<button>Create</button>
-	</form>
-	<br>
-	<a href="/events">Back to Events page.</a>
+	</nav>
+	<div class="container outer">
+		<header>
+			<h1>Create Event</h1>
+		</header>
+		<form method="post" action="/newEventData">
+			<div>
+				<input type"text" name="event[title]" placeholder="Title" required>
+			</div>
+			<div>
+				<input type"text" name="event[company]" placeholder="Theater/Conpany/School" required>
+			</div>
+			<div>
+				<textarea name="event[description]" placeholder="Description" required></textarea>
+			</div>
+			<div>
+				<label>Date
+					<input type="date" name="event[date]" required>
+				</label>
+			</div>
+			<div>
+				<label>Start Time
+					<input type="time" name="event[time]" default="9:00am" required>
+				</label>
+			</div>
+			<div>
+				<input type"text" name="event[location]" placeholder="Address" required>
+			</div>
+			<button>Create</button>
+		</form>
+		<br>
+		<a href="/events">Back to Events page.</a>
+	</div>
+
 </body>
 </html>

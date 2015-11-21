@@ -46,15 +46,19 @@ app.use(function (req, res, next) {
   next(); 
 });
 
-app.get("/newEvent", function(req, res){
+app.get("/newevent", function(req, res){
 	res.sendFile(path.join(views, "newEvent.html"));
 });
 
 app.get("/", function(req, res){
+	res.sendFile(path.join(views, "index.html"));
+});
+
+app.get("/signin", function(req, res){
 	res.sendFile(path.join(views, "signIn.html"));
 });
 
-app.get("/signUp", function(req, res){
+app.get("/signup", function(req, res){
 	res.sendFile(path.join(views, "signUp.html"));
 });
 

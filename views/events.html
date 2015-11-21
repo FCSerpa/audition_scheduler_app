@@ -6,27 +6,41 @@
 	<script src="/vendor/underscore/underscore-min.js"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/static/events.js"></script>
-	<link rel="stylesheet" src="/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<script src="/static/app.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Tangerine|Lora' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-	<div>
-		<header>
-			<h1>Audition Scheduler</h1>
-			<h2>Events</h2>
+	<nav class="navbar navbar-inverse">
+		<a href="/"><h1 class="navbar-text" id="navTitle">Audition Scheduler</h1></a>
+		<div class="navbar-right btnNav" id="navInUpBtns">
+			<a class="btn btnRed btnNav" href="/signin">Sign In</a>
+			<a class="btn btnRed btnNav" href="/signup">Sign Up</a>
+		</div>
+		<div class="navbar-right btnNav" id="navOutBtns">
 			<form action="/logout" method="POST">
-				<input class="pull-right" type="submit" value="Sign Out"/>
+				<input class="btn btnRed btnNav" type="submit" value="Sign Out"/>
 			</form>
-		</header>
-	</div>
-	<div id="eventStuff">
-		<ul id="eventDataTemplate"></ul>
-		<script type="text/template" id="event-template">
-				<a href="/event/<%= _id %>" ><%= title %>, <%= company %>, <%= date %>.</a><br>
-		</script>
-		
-	</div>
-	<a href="/newEvent">Create a new audition event.</a>
-		
+		</div>
+	</nav>
+	<div class="container outer">
+		<div>
+			<header>
+				<h1>Events</h1>
+				<form action="/logout" method="POST">
+					<input class="pull-right" type="submit" value="Sign Out"/>
+				</form>
+			</header>
+		</div>
+		<div id="eventStuff">
+			<ul id="eventDataTemplate"></ul>
+			<script type="text/template" id="event-template">
+					<a href="/event/<%= _id %>" ><%= title %>, <%= company %>, <%= date %>.</a><br>
+			</script>
+			
+		</div>
+		<a href="/newevent">Create a new audition event.</a>
+	</div>	
 </body>
 </html>

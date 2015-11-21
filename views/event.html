@@ -6,29 +6,39 @@
 	<script src="/vendor/underscore/underscore-min.js"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/static/event.js"></script>
-	<link rel="stylesheet" src="/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<script src="/static/app.js"></script>
+	<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-	<div>
-		<header>
-			<h1>Audition Scheduler</h1>
-		</header>
+	<nav class="navbar navbar-inverse">
+		<a href="/"><h1 class="navbar-text" id="navTitle">Audition Scheduler</h1></a>
+		<div class="navbar-right btnNav" id="navInUpBtns">
+			<a class="btn btnRed btnNav" href="/signin">Sign In</a>
+			<a class="btn btnRed btnNav" href="/signup">Sign Up</a>
+		</div>
+		<div class="navbar-right btnNav" id="navOutBtns">
+			<form action="/logout" method="POST">
+				<input class="btn btnRed btnNav" type="submit" value="Sign Out"/>
+			</form>
+		</div>
+	</nav>
+	<div class="container">
+		<div id="eventStuff">
+			<script type="text/template" id="event-template">
+				<div id="eventDataTemplate">
+					<h2><%= title %></h2>
+					<p>Theater: <%= company %></p>
+					<p>Description: <%= description %></p>
+					<p>Location: <%= location %></p>
+					<p>Date: <%= date %></p>
+					<p>Time: <%= time %></p>
+				</div>
+			</script>
+		</div>
+		<div id="slotStuff">
+		</div>
+		<a href="/events">Back to Events page.</a>
 	</div>
-	<div id="eventStuff">
-		<script type="text/template" id="event-template">
-			<div id="eventDataTemplate">
-				<h2><%= title %></h2>
-				<p>Theater: <%= company %></p>
-				<p>Description: <%= description %></p>
-				<p>Location: <%= location %></p>
-				<p>Date: <%= date %></p>
-				<p>Time: <%= time %></p>
-			</div>
-		</script>
-	</div>
-	<div id="slotStuff">
-	</div>
-	<a href="/events">Back to Events page.</a>
 </body>
 </html>

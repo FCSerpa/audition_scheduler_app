@@ -6,12 +6,42 @@ html {
   background-size: cover;
 }
 
+p, a, input, button {
+	font-family: 'Lora', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Tangerine', cursive;
+}
+
 body {
+	background: transparent;
+}
+
+#navTitle {
+	margin-bottom: 5px;
+}
+
+.outer {
 	max-width: 50%;
 	background-color: rgba(45, 45, 45, 0.6);
 	text-align: center;
 	color: white;
 	margin: 0 auto;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.btnRed {
+	background-color: red;
+}
+
+.btnNav {
+	margin: 5px;
+}
+
+.signUpIn {
+	margin-top: 10%;
 }
 
 a {
