@@ -26,8 +26,9 @@ function getEvent() {
 		} else {
 			eventRes[0].time = (parseInt(hour) - 12) + ':' + minute + 'pm';
 		}
-		if (eventRes[0].time === '0') {
+		if (eventRes[0].time[0] === '0') {
 			eventRes[0].time = eventRes[0].time.slice(1, 7);
+			
 		}
 		var template = _.template($("#event-template").html());
 		var eventData = template(eventRes[0]);
