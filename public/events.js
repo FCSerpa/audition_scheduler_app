@@ -9,7 +9,8 @@ function getEvents() {
 		var eventRes = res;
 		var template = _.template($("#event-template").html());
 		var eventItems = eventRes.map(function(event){
-			return template(event)
+			event.date = moment(event.date).format('MMMM Do YYYY');
+			return template(event);
 		});
 
 		$("#eventStuff").append(eventItems);

@@ -13,6 +13,22 @@ num = num.join(separator = '');
 function getEvent() {
 	$.get('/api/events/' + num, function(res){
 		eventRes = res
+		eventRes[0].date = moment(eventRes[0].date).format('MMMM Do YYYY');
+		//display time nicely-
+		var hour = eventRes[0].time.slice(0, 2);
+		var minute = eventRes[0].time.slice(3, 5);
+		if (hour === '00') {
+			eventRes[0].time = '12:' + minute + 'am';
+		} else if (parseInt(hour) < 12) {
+			eventRes[0].time = hour + ':' + minute + 'am';
+		} else if (parseInt(hour) === 12) {
+			eventRes[0].time = '12:' + minute + 'pm';
+		} else {
+			eventRes[0].time = (parseInt(hour) - 12) + ':' + minute + 'pm';
+		}
+		if (eventRes[0].time === '0') {
+			eventRes[0].time = eventRes[0].time.slice(1, 7);
+		}
 		var template = _.template($("#event-template").html());
 		var eventData = template(eventRes[0]);
 		$("#eventStuff").empty();
